@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script type="text/javascript">
+            window.WasmWorker = new window.Worker("worker.js")
+        </script>
+        <style type="text/css">
+            html, body {
+                min-width: 100%;
+                min-height: 100vh;
+                margin: 0px;
+            }
+
+            body {
+                display: flex;
+                background-color: #ddd;
+            }
+
+            #content {
+                flex: 1;
+                max-width: 800px;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                border-radius: 15px;
+                border: 1px solid: #bbb;
+                background-color: white;
+            }
+
+            #header {
+                flex: 1;
+                text-align: center;
+                padding: 5px;
+            }
+
+            #images {
+                flex: 1;
+                display: flex;
+            }
+
+            #images div:first-child {
+                margin: 10px 5px 10px 10px;
+            }
+
+            #images > div {
+                flex: 1;
+                margin: 10px 10px 10px 5px;
+                display: flex;
+                min-height: 400px;
+                flex-direction: column;
+            }
+
+            .img-wrapper {
+                flex: 1;
+                display: flex;
+                align-items: center;
+            }
+
+            .img {
+                width: 100%;
+                max-width: 100%;
+                align-self: center;
+                opacity: 0;
+                border-radius: 15px;
+            }
+
+            .img[src] {
+                opacity: 1;
+            }
+
+            #images div span {
+                width: 100%;
+                text-align: center;
+                align-self: end;
+            }
+
+            #github {
+                align-self: center;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <div id="header">
+                <h1>Portrait Converter</h1>
+                <span id="message">Drag and drop an image below</span>
+            </div>
+            <div id="images">
+                <div>
+                    <div class="img-wrapper"><img class="img" id="input"></img></div>
+                    <span>Input Image</span>
+                </div>
+                <div>
+                    <div class="img-wrapper"><img class="img" id="output"></img></div>
+                    <span>Output Image</span>
+                </div>
+            </div>
+            <a id="github" href="https://github.com/korylprince/go-face-detect">GitHub</a>
+        </div>
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>
